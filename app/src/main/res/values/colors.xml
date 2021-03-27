@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary">#aaaaaa</color>
+    <color name="primaryVariant">#bbbbbb</color>
+    <color name="secondary">#f2dcbb</color>
+    <color name="secondaryVariant">#f9f7cf</color>
+    <color name="orange">#F2B32A</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+</resources>
