@@ -21,13 +21,14 @@ import org.json.JSONObject
 class DetailActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityDetailBinding
+    private lateinit var adapter: GithubAdapter
     private val TAG = "DetailActivity"
 
     companion object {
         const val EXTRA_GITHUB = "extra_github"
 
         @StringRes
-        private val TAB_TITLES = intArrayOf (
+        private val TAB_TITLES = intArrayOf(
                 R.string.tab_text_1,
                 R.string.tab_text_2
         )
@@ -40,17 +41,18 @@ class DetailActivity : AppCompatActivity() {
 
         val dataGithub: Github? = intent.getParcelableExtra(EXTRA_GITHUB)
         val username = "${dataGithub?.username}"
-        getUser(username)
 
         val sectionsPagerAdapter = SectionsPagerAdapter(this, username)
         val viewPager: ViewPager2 = findViewById(R.id.view_pager)
-            viewPager.adapter = sectionsPagerAdapter
+        viewPager.adapter = sectionsPagerAdapter
         val tabs: TabLayout = findViewById(R.id.tablayout)
-            TabLayoutMediator(tabs,viewPager) {tab, position ->
+        TabLayoutMediator(tabs,viewPager) {tab, position ->
             tab.text = resources.getString(TAB_TITLES[position])
         }.attach()
 
         supportActionBar?.elevation = 0f
+
+        getUser(username)
     }
 
     private fun getUser (username: String?) {

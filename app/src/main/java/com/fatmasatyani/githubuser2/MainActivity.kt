@@ -20,6 +20,8 @@ import org.json.JSONObject
 class MainActivity : AppCompatActivity() {
 
     val listGithub = MutableLiveData<ArrayList<Github>>()
+    private var list: ArrayList<Github> = arrayListOf()
+    private lateinit var rvGIthub: RecyclerView
     private lateinit var adapter: GithubAdapter
     private lateinit var binding: ActivityMainBinding
     private val TAG = "MainActivity"
